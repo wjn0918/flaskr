@@ -23,7 +23,7 @@ def index():
     posts = cursor.fetchall()
     return render_template('blog/index.html', posts=posts)
 
-
+#创建博客
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
 def create():
@@ -69,7 +69,7 @@ def get_post(id, check_author=True):
 
     return post
 
-
+#更新博客
 @bp.route('/<int:id>/update', methods=('GET', 'POST'))
 @login_required
 def update(id):
@@ -101,7 +101,7 @@ def update(id):
 
 
 
-
+#删除博客
 @bp.route('/<int:id>/delete', methods=('POST',))
 @login_required
 def delete(id):
