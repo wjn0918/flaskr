@@ -9,7 +9,7 @@ from flaskr.db import get_db
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
-
+#注册用户
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
@@ -44,7 +44,7 @@ def register():
 
 
 
-
+#登陆
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
     if request.method == 'POST':
@@ -86,7 +86,7 @@ def load_logged_in_user():
         )
         g.user = cursor.fetchone()
 
-
+#退出
 @bp.route('/logout')
 def logout():
     session.clear()
