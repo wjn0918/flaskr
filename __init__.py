@@ -28,7 +28,7 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return 'Hello, World!'
-    
+    #调用db.py使用init_app函数进行初始化数据库文件   
     from . import db
     db.init_app(app)
     
