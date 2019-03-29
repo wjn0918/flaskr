@@ -4,7 +4,7 @@ import click
 from flask import current_app, g
 from flask.cli import with_appcontext
 
-
+#连接数据库
 def get_db():
     if 'db' not in g:
         g.db = pymysql.connect(
@@ -19,13 +19,13 @@ def get_db():
 
     return g.db
 
-
+#关闭连接
 def close_db(e=None):
     db = g.pop('db', None)
 
     if db is not None:
         db.close()
-
+#初始化数据库
 def init_db():
     db = get_db()
 
